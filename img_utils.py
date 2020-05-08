@@ -2,6 +2,11 @@ import numpy as np
 import tensorflow as tf
 import PIL.Image
 
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+mpl.rcParams['figure.figsize'] = (12,12)
+mpl.rcParams['axes.grid'] = False
+
 def tensor_to_image(tensor):
   tensor = tensor*255
   tensor = np.array(tensor, dtype=np.uint8)

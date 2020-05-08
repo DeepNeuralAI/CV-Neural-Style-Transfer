@@ -1,3 +1,5 @@
+import tensorflow as tf
+
 def vgg_layers(layer_names):
   """ Creates a vgg model that returns a list of intermediate output values."""
   vgg = tf.keras.applications.VGG19(include_top=False, weights='imagenet')

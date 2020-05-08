@@ -1,3 +1,7 @@
+import tensorflow as tf
+import model_utils
+import style_utils
+
 class StyleContentModel(tf.keras.models.Model):
   def __init__(self, style_layers, content_layers):
     super(StyleContentModel, self).__init__()
@@ -6,7 +10,7 @@ class StyleContentModel(tf.keras.models.Model):
     self.num_style_layers = len(style_layers)
     self.content_layers = content_layers
 
-    self.vgg = vgg_layers(style_layers + content_layers)
+    self.vgg = model_utils.vgg_layers(style_layers + content_layers)
     self.vgg.trainable = False
 
   def call(self, inputs):
@@ -17,7 +21,7 @@ class StyleContentModel(tf.keras.models.Model):
 
     style_outputs, content_outputs = (outputs[:self.num_style_layers], outputs[self.num_style_layers:])
 
-    style_outputs = [gram_matrix(style_output) for style_output in style_outputs]
+    style_outputs = [style_utils.gram_matrix(style_output) for style_output in style_outputs]
 
     content_dict = {content_name:value for content_name, value in zip(self.content_layers, content_outputs)}
 
