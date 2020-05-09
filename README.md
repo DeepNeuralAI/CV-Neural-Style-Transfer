@@ -2,7 +2,8 @@
 
 ### Demo
 
-<img width="1410" src="https://user-images.githubusercontent.com/34294344/81485351-36c93500-9201-11ea-8de1-c4f49cee48ef.png">
+![image](https://user-images.githubusercontent.com/34294344/81485980-64fd4380-9206-11ea-80e4-aea3c4c797ff.png)
+
 
 ### Gallery
 
