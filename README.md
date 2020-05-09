@@ -1,4 +1,6 @@
 # CV-Neural-Style-Transfer
+#### Implementation of A Neural Algorithm of Artistic Style By Leon A. Gatys, Alexander S. Ecker, Matthias Bethge
+
 
 ### Demo
 
