@@ -7,6 +7,8 @@ import matplotlib as mpl
 mpl.rcParams['figure.figsize'] = (12,12)
 mpl.rcParams['axes.grid'] = False
 
+import pdb
+
 def tensor_to_image(tensor):
   tensor = tensor*255
   tensor = np.array(tensor, dtype=np.uint8)
@@ -15,11 +17,11 @@ def tensor_to_image(tensor):
     tensor = tensor[0]
   return PIL.Image.fromarray(tensor)
 
-def load_img(path_to_img):
+def load_img(img):
   max_dim = 512
-  img = tf.io.read_file(path_to_img)
-  img = tf.image.decode_image(img, channels=3)
-  img = tf.image.convert_image_dtype(img, tf.float32)
+  # img = tf.io.read_file(path_to_img)
+  # img = tf.image.decode_image(img, channels=3)
+  # img = tf.image.convert_image_dtype(img, tf.float32)
 
   shape = tf.cast(tf.shape(img)[:-1], tf.float32)
   long_dim = max(shape)

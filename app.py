@@ -1,6 +1,9 @@
+import streamlit as st
 import numpy as np
 import tensorflow as tf
-import PIL.Image
+from PIL import Image
+from io import BytesIO
+
 
 import matplotlib.pyplot as plt
 import matplotlib as mpl
@@ -11,23 +14,25 @@ from img_utils import *
 from style_utils import *
 from style_content_model import *
 
+import pdb
 
-# content_path = tf.keras.utils.get_file('sea_turtle.jpg', 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Green_Sea_Turtle_grazing_seagrass.jpg')
+st.title("Neural Style Transfer")
 
-# style_path = tf.keras.utils.get_file('kanagawa.jpg','https://upload.wikimedia.org/wikipedia/commons/0/0a/The_Great_Wave_off_Kanagawa.jpg')
+st.sidebar.title('Features')
+content_img_buffer = st.sidebar.file_uploader("Choose a Content Image", type=["png", "jpg", "jpeg"])
+style_img_buffer = st.sidebar.file_uploader("Choose a Style Image", type=["png", "jpg", "jpeg"])
 
+# if content_img_buffer is not None:
+img_pil_object = Image.open(content_img_buffer)
+content_image = load_img(tf.keras.preprocessing.image.img_to_array(img_pil_object))
 
-# content_image = load_img(content_path)
-# style_image = load_img(style_path)
-
-# plt.subplot(1, 2, 1)
-# imshow(content_image, 'Content Image')
-
-# plt.subplot(1, 2, 2)
-# imshow(style_image, 'Style Image')
+# if style_img_buffer is not None:
+img_pil_object = Image.open(style_img_buffer)
+style_image = load_img(tf.keras.preprocessing.image.img_to_array(img_pil_object))
 
 
 extractor = StyleContentModel(style_layers, content_layers)
+
 
 targets = {
     "style": extractor(style_image)['style'],
@@ -53,7 +58,6 @@ def train_step(image):
     opt.apply_gradients([(grad, image)])
     image.assign(clip_0_1(image))
 
-import IPython.display as display
 
 import time
 start = time.time()
