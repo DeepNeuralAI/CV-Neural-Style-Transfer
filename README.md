@@ -8,9 +8,9 @@
 
 | Content & Style  | Generated |
 | ------------- | ------------- |
-| <img width="300" src="https://user-images.githubusercontent.com/34294344/81485250-8ce9a880-9200-11ea-87e6-11893e082453.png">  | <img width="400" src="https://user-images.githubusercontent.com/34294344/81485284-c1f5fb00-9200-11ea-8af3-8c81f4372181.jpeg"> |
-| <img width="300" src="https://user-images.githubusercontent.com/34294344/81485264-9ffc7880-9200-11ea-8dc1-198a1942e28b.png">  | <img src="https://user-images.githubusercontent.com/34294344/81485299-e18d2380-9200-11ea-8bdd-b814bcd9ce6d.jpeg" width="400">  |
-<img width="315" src="https://user-images.githubusercontent.com/34294344/81485271-af7bc180-9200-11ea-95d8-d16ce1b08223.png"> | <img src="https://user-images.githubusercontent.com/34294344/81485302-f2d63000-9200-11ea-84da-f0a3e4b4ee23.jpeg" width="400">
+| <img src="https://user-images.githubusercontent.com/34294344/81485250-8ce9a880-9200-11ea-87e6-11893e082453.png">  | <img width="400" src="https://user-images.githubusercontent.com/34294344/81485284-c1f5fb00-9200-11ea-8af3-8c81f4372181.jpeg"> |
+| <img src="https://user-images.githubusercontent.com/34294344/81485264-9ffc7880-9200-11ea-8dc1-198a1942e28b.png">  | <img src="https://user-images.githubusercontent.com/34294344/81485299-e18d2380-9200-11ea-8bdd-b814bcd9ce6d.jpeg" width="400">  |
+<img src="https://user-images.githubusercontent.com/34294344/81485271-af7bc180-9200-11ea-95d8-d16ce1b08223.png"> | <img src="https://user-images.githubusercontent.com/34294344/81485302-f2d63000-9200-11ea-84da-f0a3e4b4ee23.jpeg" width="400">
 
 
 ### How to use Streamlit App
