@@ -22,17 +22,12 @@ st.sidebar.title('Features')
 content_img_buffer = st.sidebar.file_uploader("Choose a Content Image", type=["png", "jpg", "jpeg"])
 style_img_buffer = st.sidebar.file_uploader("Choose a Style Image", type=["png", "jpg", "jpeg"])
 
-# if content_img_buffer is not None:
-img_pil_object = Image.open(content_img_buffer)
-content_image = load_img(tf.keras.preprocessing.image.img_to_array(img_pil_object))
+content_image = load_img(content_img_buffer)
+style_image = load_img(style_img_buffer)
 
-# if style_img_buffer is not None:
-img_pil_object = Image.open(style_img_buffer)
-style_image = load_img(tf.keras.preprocessing.image.img_to_array(img_pil_object))
-
+generated_image = st.empty()
 
 extractor = StyleContentModel(style_layers, content_layers)
-
 
 targets = {
     "style": extractor(style_image)['style'],
@@ -70,10 +65,9 @@ for n in range(epochs):
   for m in range(steps_per_epoch):
     step += 1
     train_step(image)
+    generated_image.image(tensor_to_image(image))
     print(".", end='')
-  display.clear_output(wait=True)
-  display.display(tensor_to_image(image))
-  print("Train step: {}".format(step))
+  # print("Train step: {}".format(step))
 
 end = time.time()
 print("Total time: {:.1f}".format(end-start))

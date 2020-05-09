@@ -17,11 +17,11 @@ def tensor_to_image(tensor):
     tensor = tensor[0]
   return PIL.Image.fromarray(tensor)
 
-def load_img(img):
+def load_img(img_buffer):
   max_dim = 512
   # img = tf.io.read_file(path_to_img)
-  # img = tf.image.decode_image(img, channels=3)
-  # img = tf.image.convert_image_dtype(img, tf.float32)
+  img = tf.image.decode_image(img_buffer.getvalue(), channels=3)
+  img = tf.image.convert_image_dtype(img, tf.float32)
 
   shape = tf.cast(tf.shape(img)[:-1], tf.float32)
   long_dim = max(shape)
