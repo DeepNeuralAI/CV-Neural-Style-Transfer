@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit import caching
 import numpy as np
 import tensorflow as tf
 from PIL import Image
@@ -16,8 +17,6 @@ st.sidebar.title('Features')
 learning_rate = st.sidebar.slider('Learning rate', 0.0, 0.1, .02)
 epochs = st.sidebar.slider('Number of Epochs', 1, 100, 10)
 steps_per_epoch = st.sidebar.slider('Steps Per Epoch', 1, 500, 100)
-
-clicked = st.sidebar.button('Generate')
 
 st.markdown(f'<br>', unsafe_allow_html=True)
 
@@ -46,33 +45,33 @@ def train_step(image):
     opt.apply_gradients([(grad, image)])
     image.assign(clip_0_1(image))
 
-@st.cache
+@st.cache(suppress_st_warning = True)
 def run_style_transfer(image, epochs, steps_per_epoch):
-
+  generated_image.clear()
   step = 0
   for n in range(epochs):
     for m in range(steps_per_epoch):
       step += 1
       train_step(image)
       generated_image.image(tensor_to_image(image), caption = 'Generated Image', use_column_width = True)
-      print(".", end='')
-  print("Total time: {:.1f}".format(end-start))
 
 
+if content_img_buffer and style_img_buffer:
+  clicked = st.sidebar.button('Generate')
+  if clicked:
+    caching.clear_cache()
+    extractor = StyleContentModel(style_layers, content_layers)
+    opt = tf.optimizers.Adam(learning_rate=learning_rate, beta_1=0.99, epsilon=1e-1)
 
-if clicked and content_img_buffer and style_img_buffer:
-  extractor = StyleContentModel(style_layers, content_layers)
-  opt = tf.optimizers.Adam(learning_rate=learning_rate, beta_1=0.99, epsilon=1e-1)
+    targets = {
+      "style": extractor(style_image)['style'],
+      "content": extractor(content_image)['content']
+    }
 
-  targets = {
-    "style": extractor(style_image)['style'],
-    "content": extractor(content_image)['content']
-  }
+    weights = {
+      "style": 1e-2,
+      "content": 1e4
+    }
 
-  weights = {
-    "style": 1e-2,
-    "content": 1e4
-  }
-
-  generated_image = st.empty()
-  run_style_transfer(image, epochs, steps_per_epoch)
+    generated_image = st.empty()
+    run_style_transfer(image, epochs, steps_per_epoch)
