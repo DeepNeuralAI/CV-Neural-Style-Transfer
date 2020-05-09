@@ -2,15 +2,14 @@
 
 ### Demo
 
-<img width="1410" src="https://user-images.githubusercontent.com/34294344/81485351-36c93500-9201-11ea-8de1-c4f49cee48ef.png">
-
+![image](https://user-images.githubusercontent.com/34294344/81485585-e3f07d00-9202-11ea-85d1-5582064e1471.png)
 
 
 ### Gallery
 
 <img width="300"  src="https://user-images.githubusercontent.com/34294344/81485250-8ce9a880-9200-11ea-87e6-11893e082453.png">
 
-<img style="float: right" width="400" src="https://user-images.githubusercontent.com/34294344/81485284-c1f5fb00-9200-11ea-8af3-8c81f4372181.jpeg">
+<img style="float: right" width="350" src="https://user-images.githubusercontent.com/34294344/81485284-c1f5fb00-9200-11ea-8af3-8c81f4372181.jpeg">
 
 <hr><br>
 <img width="300" src="https://user-images.githubusercontent.com/34294344/81485264-9ffc7880-9200-11ea-8dc1-198a1942e28b.png">
