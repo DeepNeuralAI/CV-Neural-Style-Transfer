@@ -4,16 +4,6 @@
 
 ![image](https://user-images.githubusercontent.com/34294344/81486037-e94fc680-9206-11ea-8241-904b3e29bdb0.png)
 
-
-### Gallery
-
-| Content & Style  | Generated |
-| ------------- | ------------- |
-| <img width="300" src="https://user-images.githubusercontent.com/34294344/81485250-8ce9a880-9200-11ea-87e6-11893e082453.png">  | <img src="https://user-images.githubusercontent.com/34294344/81485284-c1f5fb00-9200-11ea-8af3-8c81f4372181.jpeg"> |
-| <img width="300" src="https://user-images.githubusercontent.com/34294344/81485264-9ffc7880-9200-11ea-8dc1-198a1942e28b.png">  | <img src="https://user-images.githubusercontent.com/34294344/81485299-e18d2380-9200-11ea-8bdd-b814bcd9ce6d.jpeg" width="400">  |
-<img width="300" src="https://user-images.githubusercontent.com/34294344/81485271-af7bc180-9200-11ea-95d8-d16ce1b08223.png"> | <img src="https://user-images.githubusercontent.com/34294344/81485302-f2d63000-9200-11ea-84da-f0a3e4b4ee23.jpeg">
-
-
 ### How to use Streamlit App
 ```
 1. Choose a content image
@@ -30,3 +20,18 @@ cd CV-Neural-Style-Transfer
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+### Gallery
+
+| Content & Style  | Generated |
+| ------------- | ------------- |
+| <img width="300" src="https://user-images.githubusercontent.com/34294344/81485250-8ce9a880-9200-11ea-87e6-11893e082453.png">  | <img src="https://user-images.githubusercontent.com/34294344/81485284-c1f5fb00-9200-11ea-8af3-8c81f4372181.jpeg"> |
+| <img width="300" src="https://user-images.githubusercontent.com/34294344/81485264-9ffc7880-9200-11ea-8dc1-198a1942e28b.png">  | <img src="https://user-images.githubusercontent.com/34294344/81485299-e18d2380-9200-11ea-8bdd-b814bcd9ce6d.jpeg" width="400">  |
+<img width="300" src="https://user-images.githubusercontent.com/34294344/81485271-af7bc180-9200-11ea-95d8-d16ce1b08223.png"> | <img src="https://user-images.githubusercontent.com/34294344/81485302-f2d63000-9200-11ea-84da-f0a3e4b4ee23.jpeg">
+
+### Credit
+
+Modified code from [Style Transfer](https://www.tensorflow.org/tutorials/generative/style_transfer)
+
+Inspired from [A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576)
+
