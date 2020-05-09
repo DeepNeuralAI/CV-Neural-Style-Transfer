@@ -26,7 +26,6 @@ style_img_buffer = st.file_uploader("Choose a Style Image", type=["png", "jpg", 
 
 if content_img_buffer:
   content_image = load_img(content_img_buffer)
-  image = tf.Variable(content_image)
 
 
 if style_img_buffer:
@@ -45,21 +44,24 @@ def train_step(image):
     opt.apply_gradients([(grad, image)])
     image.assign(clip_0_1(image))
 
-@st.cache(suppress_st_warning = True)
+@st.cache(allow_output_mutation=True, suppress_st_warning = True)
 def run_style_transfer(image, epochs, steps_per_epoch):
-  generated_image.clear()
+  generated_image.image(tensor_to_image(image), caption = 'Starting...', use_column_width = True)
   step = 0
   for n in range(epochs):
     for m in range(steps_per_epoch):
       step += 1
       train_step(image)
-      generated_image.image(tensor_to_image(image), caption = 'Generated Image', use_column_width = True)
+      generated_image.image(tensor_to_image(image), caption = f'Training Step {step}', use_column_width = True)
+  generated_image.image(tensor_to_image(image), caption = 'Generated Image', use_column_width = True)
 
 
 if content_img_buffer and style_img_buffer:
+  caching.clear_cache()
   clicked = st.sidebar.button('Generate')
   if clicked:
     caching.clear_cache()
+    image = tf.Variable(content_image)
     extractor = StyleContentModel(style_layers, content_layers)
     opt = tf.optimizers.Adam(learning_rate=learning_rate, beta_1=0.99, epsilon=1e-1)
 
